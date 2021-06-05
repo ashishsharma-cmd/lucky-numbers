@@ -1,0 +1,38 @@
+public class Solution {
+    public int solve(int A) {
+
+        int[] isPrime = new int[A+1];
+        int []prime=new int[A+1];
+        Arrays.fill(prime,0);
+        Arrays.fill(isPrime, 0);
+        isPrime[0]=isPrime[1]=1;
+        for(int i=2;i<isPrime.length;i++)
+        {  
+            
+            if(isPrime[i]==0)
+            { 
+                
+                for(int m=i*2;m<isPrime.length;m+=i)
+                {
+                    isPrime[m]=1;
+                    prime[m]=prime[m]+1;
+                }
+            }
+        }
+        //System.out.println(Arrays.toString(prime));
+        int cnt=0;
+         
+         for(int i=1;i<=A;i++)
+         {
+            if(prime[i]==2)
+            {
+                cnt++;
+            }
+         }
+ 
+    return cnt;
+        
+    
+        
+    }
+}
